@@ -23,11 +23,12 @@ mongoose.connect(process.env.MONGO_URI)
 import authRoutes from './routes/authRoutes.js';
 import clientRoutes from './routes/client.routes.js';
 import timeRoutes from './routes/timeRoutes.js'; // Vérifiez que ce fichier existe
-
+import projectRoutes from './routes/Projects.routes.js'; // Assurez-vous que ce fichier existe
 
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/times', timeRoutes); // Assurez-vous que cette ligne est présente
+app.use('/api/projects', projectRoutes); // Assurez-vous que cette ligne est présente
 
 app.get('/', (req, res) => {
   res.send('API running');

@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
 
-const clientSchema = new mongoose.Schema(
+
+const projectSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    company: String,
-    email: String,
-    phone: String,
+    clientId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Client",
+      required: true,
+    },
     createdByUserId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -15,4 +18,4 @@ const clientSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Client", clientSchema);
+export default mongoose.model("Project", projectSchema);
